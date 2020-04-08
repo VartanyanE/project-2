@@ -1,3 +1,4 @@
-body {
-    background-color: indianred;
+form.signup,
+form.login {
+  margin-top: 50px;
 }
