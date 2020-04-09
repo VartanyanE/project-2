@@ -7,6 +7,17 @@ CREATE DATABASE inventory_db;
 -- Switches to inventory_db database
 USE inventory_db;
 
+CREATE TABLE `Users`
+(
+id INT NOT NULL AUTO_INCREMENT,
+email VARCHAR(255) NOT NULL,
+password VARCHAR(255) NOT NULL,
+ createdAt DATETIME NOT NULL,
+ updatedAt DATETIME NOT NULL,
+ PRIMARY KEY (id)
+
+);
+
 -- Creates the inventory table
 CREATE TABLE `inventory`
 (
