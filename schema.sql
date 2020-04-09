@@ -10,11 +10,16 @@ USE inventory_db;
 CREATE TABLE `Users`
 (
 id INT NOT NULL AUTO_INCREMENT,
-email VARCHAR(255) NOT NULL,
-password VARCHAR(255) NOT NULL,
+email VARCHAR
+(255) NOT NULL,
+password VARCHAR
+(255) NOT NULL,
  createdAt DATETIME NOT NULL,
  updatedAt DATETIME NOT NULL,
- PRIMARY KEY (id)
+ user_name VARCHAR
+(255) NOT NULL,
+ PRIMARY KEY
+(id)
 
 );
 
@@ -22,13 +27,17 @@ password VARCHAR(255) NOT NULL,
 CREATE TABLE `inventory`
 (
     id INT NOT NULL AUTO_INCREMENT,
-    item_name VARCHAR(255) NOT NULL,
-    item_format VARCHAR(255) NOT NULL,
+    item_name VARCHAR
+(255) NOT NULL,
+    item_format VARCHAR
+(255) NOT NULL,
     number_items INTEGER,
     user_id INTEGER,
     createdAt DATETIME,
     updatedAt DATETIME,
-    PRIMARY KEY(id),
+    PRIMARY KEY
+(id),
     FOREIGN KEY
-        (user_id) REFERENCES Users (id)
+(user_id) REFERENCES Users
+(id)
 );
