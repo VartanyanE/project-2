@@ -20,7 +20,10 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.INTEGER,
             allowNull: false
         }
-    });
+    },
+        {
+            freezeTableName: true // Model tableName will be the same as the model name instead of being pluralized
+        });
 
     Inventory.associate = function (models) {
         // An Inventory item can't be created without an User due to the foreign key constraint
