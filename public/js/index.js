@@ -1,7 +1,7 @@
-$(document).ready(function () {
+$(document).ready(() => {
 
 
-    $('.create-form').on('submit', function (e) {
+    $('.create-form').on('submit', (e) => {
         e.preventDefault();
         console.log("loading")
         var search = $("#search").val().trim();
@@ -18,14 +18,14 @@ $(document).ready(function () {
         }
         $("#search").val("");
 
-        $.ajax(settings).done(function (response) {
+        $.ajax(settings).done((response) => {
             console.log(response);
         });
     })
 })
 
 if ("geolocation" in navigator) {
-    navigator.geolocation.getCurrentPosition(function (position) {
+    navigator.geolocation.getCurrentPosition((position) => {
 
         // Storing the current latitude and longitude in variables
         x = position.coords.latitude;
@@ -39,6 +39,6 @@ if ("geolocation" in navigator) {
 }
 
 
-function userLocation(x, y) {
+const userLocation = (x, y) => {
     console.log(`The user latitude is ${x} and the user longitude is ${y}`)
 }
