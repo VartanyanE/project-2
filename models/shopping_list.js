@@ -1,13 +1,8 @@
 // Creating our Inventory model
 module.exports = function (sequelize, DataTypes) {
-    var Inventory = sequelize.define("Inventory", {
+    var ShoppingList = sequelize.define("ShoppingList", {
         // The item name is the name of the product on shelf.
         item_name: {
-            type: DataTypes.STRING,
-            allowNull: false
-        },
-        // Stores how the item is stored; can, box, etc.
-        item_format: {
             type: DataTypes.STRING,
             allowNull: false
         },
@@ -15,13 +10,7 @@ module.exports = function (sequelize, DataTypes) {
         number_items: {
             type: DataTypes.INTEGER,
             allowNull: false
-        },
-        // Stores the category.
-        category: {
-            type: DataTypes.STRING,
-            allowNull: false
         }
-
         // ,        // Stores how many items are in inventory.
         // user_id: {
         //     type: DataTypes.INTEGER,
@@ -32,14 +21,14 @@ module.exports = function (sequelize, DataTypes) {
             freezeTableName: true // Model tableName will be the same as the model name instead of being pluralized
         });
 
-    Inventory.associate = function (models) {
+    ShoppingList.associate = function (models) {
         // An Inventory item can't be created without an User due to the foreign key constraint
-        Inventory.belongsTo(models.User, {
+        ShoppingList.belongsTo(models.User, {
             foreignKey: {
                 allowNull: false
             }
         });
     };
 
-    return Inventory;
+    return ShoppingList;
 };
