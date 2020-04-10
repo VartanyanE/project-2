@@ -10,18 +10,10 @@ USE inventory_db;
 CREATE TABLE `Users`
 (
 id INT NOT NULL AUTO_INCREMENT,
- database_setup
-email VARCHAR(255) NOT NULL,
-password VARCHAR(255) NOT NULL,
- Updated upstream
-user_name VARCHAR(255) NOT NULL,
- Stashed changes
-
 email VARCHAR
 (255) NOT NULL,
 password VARCHAR
 (255) NOT NULL,
- master
  createdAt DATETIME NOT NULL,
  updatedAt DATETIME NOT NULL,
  user_name VARCHAR
@@ -40,7 +32,8 @@ CREATE TABLE `inventory`
     item_format VARCHAR
 (255) NOT NULL,
     number_items INTEGER,
-    category VARCHAR(255) NOT NULL,
+    category VARCHAR
+(255) NOT NULL,
     createdAt DATETIME,
     updatedAt DATETIME,
     PRIMARY KEY
@@ -53,12 +46,15 @@ CREATE TABLE `inventory`
 CREATE TABLE `shopping_list`
 (
 id INT NOT NULL AUTO_INCREMENT,
-item_name VARCHAR(255) NOT NULL,
+item_name VARCHAR
+(255) NOT NULL,
 number_items INTEGER NOT NULL,
 createdAt DATETIME,
 updatedAt DATETIME,
-    PRIMARY KEY(id),
+    PRIMARY KEY
+(id),
     FOREIGN KEY
-        (user_id) REFERENCES Users (id)
+(user_id) REFERENCES Users
+(id)
 )
 
