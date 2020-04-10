@@ -5,7 +5,7 @@ $(document).ready(() => {
         e.preventDefault();
         console.log("loading")
         var search = $("#search").val().trim();
-        var url = `https://amazon-price1.p.rapidapi.com/search?keywords=${search}&marketplace=ES`
+        var url = `https://amazon-price1.p.rapidapi.com/search?keywords=${search}&marketplace=US`
         var settings = {
             "async": true,
             "crossDomain": true,
