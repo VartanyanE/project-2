@@ -6,16 +6,16 @@ VALUES('gin@luthercorp.com', 'password', 'Martin Funches', '2020-04-08 04:43:40'
 
 
 INSERT INTO inventory
-    (item_name,item_format,number_items,createdAt,updatedAt,UserId)
-VALUES('Hormel Chili', 'can', '10', '2020-04-08 04:43:40', '2020-04-08 04:43:40', 1);
+    (item_name,item_format,number_items,category,createdAt,updatedAt,UserId)
+VALUES('Hormel Chili', 'can', '10','Grocery', '2020-04-08 04:43:40', '2020-04-08 04:43:40', 1);
 
 INSERT INTO inventory
-    (item_name,item_format,number_items,createdAt,updatedAt,UserId)
-VALUES('Cup of Noodles', 'cup', '20', '2020-04-08 04:43:40', '2020-04-08 04:43:40', 1);
+    (item_name,item_format,number_items,category,createdAt,updatedAt,UserId)
+VALUES('Cup of Noodles', 'cup', '20','Grocery', '2020-04-08 04:43:40', '2020-04-08 04:43:40', 1);
 
 INSERT INTO inventory
-    (item_name,item_format,number_items,createdAt,updatedAt,UserId)
-VALUES('Chicken of the Sea', 'can', '30', '2020-04-08 04:43:40', '2020-04-08 04:43:40', 1)
+    (item_name,item_format,number_items,category,createdAt,updatedAt,UserId)
+VALUES('Chicken of the Sea', 'can', '30','Grocery', '2020-04-08 04:43:40', '2020-04-08 04:43:40', 1)
 ;
 
 INSERT INTO shopping_list
@@ -28,14 +28,5 @@ INSERT INTO shopping_list
 VALUES
     ('Clorox Wipes', 1, '2020-04-08 04:43:40', '2020-04-08 04:43:40', 1);
 
-<<<<<<< HEAD
-=======
- Stashed changes
-
-INSERT INTO inventory
-    (item_name,item_format,number_items,user_id,createdAt,updatedAt)
-VALUES('Chicken of the Sea', 'can', '30', 1, '2020-04-08 04:43:40', '2020-04-08 04:43:40')
-master
->>>>>>> 7091efe61a2da4864cbef458053d8479031cddaa
  
     
