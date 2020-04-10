@@ -1,10 +1,12 @@
 form.signup, form.login {
   margin-top: 50px;
+  width: 300px;
 }
 
 html, body, header, #intro {
   height: 100%;
   color: white;
+  font-family: 'Dosis', sans-serif;
 }
 
 #intro {
