@@ -1,7 +1,49 @@
+form.signup,
+form.login {
+  margin-top: 50px;
+}
+
 html,
 body,
 header,
 #intro {
   height: 100%;
   color: white;
+}
+
+.top-nav-collapse {
+  background-color: #24355c;
+}
+
+@media (max-width: 768px) {
+  .navbar:not(.top-nav-collapse) {
+    background-color: #24355c;
+  }
+}
+
+@media (min-width: 800px) and (max-width: 850px) {
+  .navbar:not(.top-nav-collapse) {
+    background-color: #24355c;
+  }
+}
+
+.jumbotron {
+  background: transparent url("../img/socialdistance.jpg") no-repeat center
+    center fixed;
+  text-shadow: 1px 1px black;
+  color: white;
+  margin-bottom: 0px;
+  height: 350px;
+}
+
+.table {
+  margin: 15px;
+}
+
+.input-group {
+  max-width: 50%;
+}
+
+.list {
+  margin: 15px;
 }

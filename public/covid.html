@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="stylesheets/style.css" />
+    <link rel="stylesheet" href="stylesheets/covid.css" />
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -32,13 +32,97 @@
             </div>
         </nav>
 
-    <div class="current-news">
-      <p class="title"></p>
-      <p class="publication"></p>
-      <p class="author"></p>
-      <p class="url"></p>
-    </div>
 
+<!-- JUMBOTRON -->
+<div class="jumbotron jumbotron-fluid text-center">
+  <div class="container">
+    <h1 class="display-4">Fluid jumbotron</h1>
+    <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-sm-6 col-md-8">
+    <!-- TABLE TO DISPLAY RESULTS FOR COVID -->
+    <table class="table table-hover">
+      <div class="d-flex justify-content-center">
+        <!-- SEARCH INPUT -->
+      <div class="input-group mb-3">
+        <input id="search" type="text" class="form-control" placeholder="Search by State" aria-label="Search by State" aria-describedby="button-addon2">
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary" type="button" id="button-addon2">Submit</button>
+      </div>
+    </div>
+    <!-- TABLE CONTENT -->
+      <thead>
+        <tr id"result">
+          <th scope="col">State</th>
+          <th scope="col">Tested Negative</th>
+          <th scope="col">Tested Positive</th>
+          <th scope="col">Deaths</th>
+          <th scope="col">Date Modified</th>
+        </tr>
+      </thead>
+      <tbody id="data">
+        <tr>
+          <th scope="row" id="state">AL</th>
+          <td id="negative">6988</td>
+          <td id="positive">235</td>
+          <td id="death">7</td>
+          <td id="dateChecked">2020-04-09T19:49:00Z</td>
+        </tr>
+      </tbody>
+      </table>
+  </div>
+
+  <!-- NEWS ARTICLES -->
+  <div class="col-6 col-md-4">
+  <div class="list-group">
+        <a href="#" class="list-group-item list-group-item-action active">
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1">List group item heading</h5>
+        <small>3 days ago</small>
+      </div>
+        <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+        <small>Donec id elit non mi porta.</small>
+        </a>
+        <a href="#" class="list-group-item list-group-item-action">
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1">List group item heading</h5>
+        <small class="text-muted">3 days ago</small>
+      </div>
+        <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+        <small class="text-muted">Donec id elit non mi porta.</small>
+        </a>
+        <a href="#" class="list-group-item list-group-item-action">
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1">List group item heading</h5>
+        <small class="text-muted">3 days ago</small>
+      </div>
+      <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+      <small class="text-muted">Donec id elit non mi porta.</small>
+      </a>
+  </div>
+  </div>
+
+
+
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
     <script type="text/javascript" src="js/covid.js"></script>
   </body>
 </html>

@@ -1,17 +1,42 @@
-var newsArticle = new XMLHttpRequest();
+var api_url = "https://covidtracking.com/api/v1/states/current.json";
 
-newsArticle.open("GET", "https://covidtracking.com/api/press", true);
-newsArticle.onload = function () {
-  // Begin accessing JSON data here
-  var data = JSON.parse(this.response);
+fetch(api_url).then((res) => {
+  res.json().then((data) => {
+    console.log(data);
+    if ((data.length = 1));
+    var state = "";
 
-  if (newsArticle.status >= 200 && newsArticle.status < 400) {
-    data.forEach((article) => {
-      console.log(article.title);
+    data.forEach((u) => {
+      state += "<tr>";
+      state += "<td>" + u.state + "</td>";
+      state += "<td>" + u.negative + "</td>";
+      state += "<td>" + u.positive + "</td>";
+      state += "<td>" + u.death + "</td>";
+      state += "<td>" + u.dateChecked + "</td></tr>";
     });
-  } else {
-    console.log("error");
-  }
-};
+    document.getElementById("data").innerHTML = state;
+  });
+});
 
-newsArticle.send();
+function setup() {
+  var button = select("#button-addon2");
+  button.mousePressed(stateDesired);
+}
+
+function stateDesired() {
+  var url = api_url + state;
+  loadJSON(url, gotData);
+}
+
+function gotData() {
+  stateDesired = data;
+}
+
+var apiNews = "https://covidtracking.com/api/press";
+
+fetch(apiNews).then((res) => {
+  res.json().then((data) => {
+    console.log(data);
+    if (data.length < data.length);
+  });
+});

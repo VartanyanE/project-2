@@ -1,14 +1,18 @@
-form.signup, form.login {
+form.signup,
+form.login {
   margin-top: 50px;
 }
 
-html, body, header, #intro {
+html,
+body,
+header,
+#intro {
   height: 100%;
   color: white;
 }
 
 #intro {
-  background: url("../img/background.jpg")no-repeat center center fixed;
+  background: url("../img/background.jpg") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -16,17 +20,17 @@ html, body, header, #intro {
 }
 
 .top-nav-collapse {
-  background-color: #24355C;
+  background-color: #24355c;
 }
 
 @media (max-width: 768px) {
   .navbar:not(.top-nav-collapse) {
-    background-color: #24355C;
+    background-color: #24355c;
   }
 }
 
 @media (min-width: 800px) and (max-width: 850px) {
   .navbar:not(.top-nav-collapse) {
-    background-color: #24355C;
+    background-color: #24355c;
   }
 }
