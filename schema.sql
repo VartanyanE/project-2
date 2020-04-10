@@ -16,6 +16,8 @@ password VARCHAR
 (255) NOT NULL,
  createdAt DATETIME NOT NULL,
  updatedAt DATETIME NOT NULL,
+ user_name VARCHAR
+(255) NOT NULL,
  PRIMARY KEY
 (id)
 

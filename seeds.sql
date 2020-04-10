@@ -27,6 +27,15 @@ INSERT INTO shopping_list
     (item_name,number_items, createdAt,updatedAt, UserId)
 VALUES
     ('Clorox Wipes', 1, '2020-04-08 04:43:40', '2020-04-08 04:43:40', 1);
-   
+
+<<<<<<< HEAD
+=======
+ Stashed changes
+
+INSERT INTO inventory
+    (item_name,item_format,number_items,user_id,createdAt,updatedAt)
+VALUES('Chicken of the Sea', 'can', '30', 1, '2020-04-08 04:43:40', '2020-04-08 04:43:40')
+master
+>>>>>>> 7091efe61a2da4864cbef458053d8479031cddaa
  
     
