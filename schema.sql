@@ -20,7 +20,7 @@ password VARCHAR(255) NOT NULL,
 );
 
 -- Creates the inventory table
-CREATE TABLE `inventory`
+CREATE TABLE `Inventory`
 (
     id INT NOT NULL AUTO_INCREMENT,
     item_name VARCHAR(255) NOT NULL,
@@ -32,7 +32,7 @@ CREATE TABLE `inventory`
     UserId INTEGER NOT NULL,
     PRIMARY KEY(id),
     FOREIGN KEY
-(user_id) REFERENCES Users(id)
+(UserId) REFERENCES Users(id)
 );
 
 CREATE TABLE `ShoppingList`
@@ -44,7 +44,7 @@ createdAt DATETIME,
 updatedAt DATETIME,
 UserId INTEGER NOT NULL,
     PRIMARY KEY(id),
-    FOREIGN KEY(user_id) REFERENCES Users
+    FOREIGN KEY(UserId) REFERENCES Users
 (id)
 )
 
