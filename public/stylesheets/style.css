@@ -30,3 +30,9 @@ html, body, header, #intro {
     background-color: #24355C;
   }
 }
+
+/* .clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+} */
