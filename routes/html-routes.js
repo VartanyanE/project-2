@@ -18,7 +18,7 @@ module.exports = function (app) {
   app.get("/login", function (req, res) {
     // If the user already has an account send them to the members page
     if (req.user) {
-      res.redirect("/members");
+      res.redirect("/inventory");
     }
     // res.sendFile(path.join(__dirname, "../public/login.html"));
     res.render("login", { data: '' });
@@ -35,5 +35,21 @@ module.exports = function (app) {
     // res.sendFile(path.join(__dirname, "../public/members.html"));
     res.render("signup", { data: '' });
   });
+
+  app.get("/covid-19", isAuthenticated, function (req, res) {
+
+    res.render("covid-19", { data: '' });
+  });
+
+  app.get("/inventory", isAuthenticated, function (req, res) {
+
+    res.render("inventory", { data: '' });
+  });
+
+  app.get("/shopping", isAuthenticated, function (req, res) {
+
+    res.render("shopping", { data: '' });
+  });
+
 
 };
