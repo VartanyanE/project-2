@@ -8,24 +8,48 @@ module.exports = function (app) {
 
   app.get("/", function (req, res) {
     // If the user already has an account send them to the members page
-    if (req.user) {
-      res.redirect("/members");
-    }
-    res.sendFile(path.join(__dirname, "../public/index.html"));
+    // if (req.user) {
+    //   res.redirect("/members");
+    // }
+    // res.sendFile(path.join(__dirname, "../public/index.html"));
+    res.render("index", { data: '' });
   });
 
   app.get("/login", function (req, res) {
     // If the user already has an account send them to the members page
     if (req.user) {
-      res.redirect("/members");
+      res.redirect("/inventory");
     }
-    res.sendFile(path.join(__dirname, "../public/login.html"));
+    // res.sendFile(path.join(__dirname, "../public/login.html"));
+    res.render("login", { data: '' });
   });
 
   // Here we've add our isAuthenticated middleware to this route.
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
   app.get("/members", isAuthenticated, function (req, res) {
-    res.sendFile(path.join(__dirname, "../public/members.html"));
+    // res.sendFile(path.join(__dirname, "../public/members.html"));
+    res.render("members", { data: '' });
   });
+
+  app.get("/signup", isAuthenticated, function (req, res) {
+    // res.sendFile(path.join(__dirname, "../public/members.html"));
+    res.render("signup", { data: '' });
+  });
+
+  app.get("/covid-19", isAuthenticated, function (req, res) {
+
+    res.render("covid-19", { data: '' });
+  });
+
+  app.get("/inventory", isAuthenticated, function (req, res) {
+
+    res.render("inventory", { data: '' });
+  });
+
+  app.get("/shopping", isAuthenticated, function (req, res) {
+
+    res.render("shopping", { data: '' });
+  });
+
 
 };
