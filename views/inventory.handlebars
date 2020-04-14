@@ -16,7 +16,39 @@
 
                     <h2>Inventory List</h2>
 
+                    <p> session: {{sessionId}} </p>
+                    <table>
+                        {{#each inventory}}
+                        <tr id='item_row'>
+                            <td>{{this.item_name}}</td>
+                            <td>{{this.item_format}}</td>
+                            <td>{{this.number_items}}</td>
+                            <td>{{this.category}}<button type="submit" button_id={{this.id}}
+                                    class="delete-button">Delete</button>
+                                <button type="submit" button_id={{this.id}} class="update-button">Update</button>
+                            </td>
+                        </tr>
+                        {{/each}}
+                    </table>
 
+                    <form class="create-form">
+                        {{!-- item_name,item_format,number_items,category,createdAt,updatedAt,UserId --}}
+                        <div class="form-group">
+                            <label for="ca">New Inventory Item:</label>
+                            <input type="text" id="ca" name="name">
+                            <label for="ca">Item Format:</label>
+                            <input type="text" id="ca" name="item_format">
+                            <label for="ca">Number Items:</label>
+                            <input type="text" id="ca" name="num_items">
+                            <label for="ca">Category:</label>
+                            <input type="text" id="ca" name="category">
+
+                        </div>
+
+
+
+                        <button type="submit">Add Item</button>
+                    </form>
                 </div>
 
             </div>

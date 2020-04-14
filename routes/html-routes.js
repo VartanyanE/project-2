@@ -1,5 +1,6 @@
 // Requiring path to so we can use relative routes to our HTML files
 var path = require("path");
+var db = require("../models");
 
 // Requiring our custom middleware for checking if a user is logged in
 var isAuthenticated = require("../config/middleware/isAuthenticated");
@@ -17,7 +18,7 @@ module.exports = function (app) {
   app.get("/login", function (req, res) {
     // If the user already has an account send them to the members page
     if (req.user) {
-      res.redirect("/inventory");
+      return res.redirect("/inventory");
     }
     // res.sendFile(path.join(__dirname, "../public/login.html"));
     res.render("login", { data: "" });
@@ -35,6 +36,7 @@ module.exports = function (app) {
     res.render("signup", { data: "" });
   });
 
+<<<<<<< HEAD
   app.get("/covid-19", function (req, res) {
     var data = {
       articles: [
@@ -51,5 +53,43 @@ module.exports = function (app) {
 
   app.get("/shopping", isAuthenticated, function (req, res) {
     res.render("shopping", { data: "" });
+=======
+  app.get("/covid-19", isAuthenticated, function (req, res) {
+
+    res.render("covid-19", {
+      sessionId: req.user.id
+    });
+  });
+
+  app.get("/inventory", isAuthenticated, function (req, res) {
+
+
+    console.log(req.user.id)
+
+    db.Inventory.findAll({ UserId: req.user.id }).then(data => {
+
+      var jsonData = data.map(el => el.toJSON())
+
+      // console.log(nodeData);
+      res.render("inventory", {
+        inventory: jsonData,
+        sessionId: req.user.id
+      });
+    }).catch(err => {
+      // console.log(err)
+      res.status(404).end
+
+    })
+
+
+
+  });
+
+  app.get("/shopping", isAuthenticated, function (req, res) {
+
+    return res.render("shopping", {
+      sessionId: req.user.id
+    });
+>>>>>>> master
   });
 };
