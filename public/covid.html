@@ -39,15 +39,6 @@
 <div class="jumbotron text-center">
   <h1 class="display-4">Fluid jumbotron</h1>
   <p class ="lead">ECE Engineering Building</p>
-</div>
-
-<!-- <div class="bg">
-<div class="jumbotron jumbotron-fluid text-center">
-    <h1 class="display-4">Fluid jumbotron</h1>
-    <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
-  </div>
-</div>
-</div> -->
 
 
 <div class="row">
@@ -63,7 +54,7 @@
       </div>
     </div>
     <!-- TABLE CONTENT -->
-      <thead>
+      <thead class="scroll">
         <tr id"result">
           <th scope="col">State</th>
           <th scope="col">Tested Negative</th>
@@ -110,11 +101,13 @@
   </div>
 
 
-  <script id="list-group" type="text/template" >
-    {{#each this}}
-      <li class="articleTitle"> {{ title }} </li>
-      {{/each}}
-</script>
+  <script id="fullList" type="text/template">
+    <ul>
+        {{#each covid}}
+          <li id="articleTitle"> {{ result.response.docs[i].headline.main }} </li>
+          {{/each}}
+    </ul>
+    </script>
 
     <script
     src="https://code.jquery.com/jquery-3.4.1.slim.min.js"

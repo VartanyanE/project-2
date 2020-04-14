@@ -1,27 +1,41 @@
-<div id="intro" class="view">
-
-    <div class="mask rgba-black-strong">
-        <br>
-        <br>
-        <br>
-        <br>
-
-
-        <div class="container-fluid d-flex align-items-center justify-content-center h-100">
-
-            <div class="row d-flex justify-content-center text-center">
-
-                <div class="col-md-12">
-
-
-                    <h2>Covid 19</h2>
-
-
-                </div>
-
+{{!-- <div class="col-6 col-md-4">
+    <div id="fullList" class="list-group">
+        <a href="#" class="list-group-item list-group-item-action active">
+            <div class="d-flex w-100 justify-content-between">
+                <h5 id="articleTitle">List group item heading</h5>
+                <small class="articleDate">3 days ago</small>
             </div>
-
-        </div>
-
+            <p class="articleSnippet">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus
+                varius blandit.</p>
+        </a>
+        <a href="#" class="list-group-item list-group-item-action">
+            <div class="d-flex w-100 justify-content-between">
+                <h5 id="articleTitle">List group item heading</h5>
+                <small class="articleDate">3 days ago</small>
+            </div>
+            <p class="articleSnippet">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus
+                varius blandit.</p>
+        </a>
+        <a href="#" class="list-group-item list-group-item-action">
+            <div class="d-flex w-100 justify-content-between">
+                <h5 id="articleTitle">List group item heading</h5>
+                <small class="articleDate">3 days ago</small>
+            </div>
+            <p class="articleSnippet">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus
+                varius blandit.</p>
+        </a>
     </div>
+</div> --}}
+
+{{!-- <script id="fullList" type="text/template"> --}}
+<div>
+    <h1>Covid Object</h1>
+    {{"covid"}}
 </div>
+<ul>
+    {{#each articles}}
+    <li>{{name}}</li>
+    {{!-- <li id="articleTitle"> {{ result.response.docs[i].headline.main }} </li> --}}
+    {{/each}}
+</ul>
+{{!-- </script> --}}
