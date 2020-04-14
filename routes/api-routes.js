@@ -8,10 +8,12 @@ module.exports = function (app) {
   // Otherwise the user will be sent an error
   app.post("/api/login", passport.authenticate("local"), function (req, res) {
     // Sending back a password, even a hashed password, isn't a good idea
+
     res.json({
       email: req.user.email,
       id: req.user.id
     });
+
   });
 
   // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
@@ -33,7 +35,9 @@ module.exports = function (app) {
 
   // Route for logging user out
   app.get("/logout", function (req, res) {
+    console.log("before:", req.user)
     req.logout();
+    console.log("after:", req.user)
     res.redirect("/");
   });
 
@@ -52,4 +56,64 @@ module.exports = function (app) {
       });
     }
   });
+
+
+  app.get("/api/inventory/:UserId", function (req, res) {
+    db.Inventory.findAll({
+      where: {
+        UserId: req.params.UserId
+      }
+    })
+      .then(function (dbPost) {
+        res.json(dbPost);
+      });
+  });
+
+  app.get("/api/inventory/:UserId/:InventoryID", function (req, res) {
+    db.Inventory.findOne({
+      where: {
+        UserId: req.params.UserId,
+        id: req.params.InventoryID
+      }
+    })
+      .then(function (dbPost) {
+        res.json(dbPost);
+      });
+  });
+
+  app.delete("/api/delete/inventory/:id", async function (req, res) {
+    var condition = "id=" + req.params.id;
+
+    const results = await db.Inventory.destroy({ where: { id: req.params.id } });
+    console.log('hello', results)
+    res.status(200);
+    res.json(true);
+  });
+
+
+
+
+  app.get("/api/shopping/:UserId", function (req, res) {
+    db.ShoppingList.findAll({
+      where: {
+        UserId: req.params.UserId
+      }
+    })
+      .then(function (dbPost) {
+        res.json(dbPost);
+      });
+  });
+
+  app.get("/api/shopping/:UserId/:ShoppingID", function (req, res) {
+    db.ShoppingList.findOne({
+      where: {
+        UserId: req.params.UserId,
+        id: req.params.ShoppingID
+      }
+    })
+      .then(function (dbPost) {
+        res.json(dbPost);
+      });
+  });
+
 };
