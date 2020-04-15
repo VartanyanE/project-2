@@ -7,6 +7,8 @@ var isAuthenticated = require("../config/middleware/isAuthenticated");
 var isNotAuthenticated = require("../config/middleware/isNotAuthenticated");
 var isNotAuthenticated2 = require("../config/middleware/isNotAuthenticated2");
 
+
+
 module.exports = function (app) {
 
   app.get("/", function (req, res) {
