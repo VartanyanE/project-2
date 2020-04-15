@@ -23,7 +23,7 @@ module.exports = function (sequelize, DataTypes) {
         }
 
         // ,        // Stores how many items are in inventory.
-        // user_id: {
+        // UserId: {
         //     type: DataTypes.INTEGER,
         //     allowNull: false
         // }

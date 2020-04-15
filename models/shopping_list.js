@@ -6,9 +6,19 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.STRING,
             allowNull: false
         },
+        // Stores how the item is stored; can, box, etc.
+        item_format: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
         // Stores how many items are in inventory.
         number_items: {
             type: DataTypes.INTEGER,
+            allowNull: false
+        },
+        // Stores the category.
+        category: {
+            type: DataTypes.STRING,
             allowNull: false
         }
         // ,        // Stores how many items are in inventory.

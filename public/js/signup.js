@@ -34,7 +34,7 @@ $(document).ready(function () {
       user_name: user_name
     })
       .then(function (data) {
-        window.location.replace("/members");
+        window.location.replace("/inventory");
         // If there's an error, handle it by throwing up a bootstrap alert
       })
       .catch(handleLoginErr);

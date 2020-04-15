@@ -15,40 +15,46 @@
 
 
                     <h2>Inventory List</h2>
-
-                    <p> session: {{sessionId}} </p>
                     <table>
                         {{#each inventory}}
                         <tr id='item_row'>
                             <td>{{this.item_name}}</td>
                             <td>{{this.item_format}}</td>
-                            <td>{{this.number_items}}</td>
-                            <td>{{this.category}}<button type="submit" button_id={{this.id}}
-                                    class="delete-button">Delete</button>
+                            <td><input type="text" class="item-number-update" data-id={{this.id}}
+                                    value={{this.number_items}} placeholder="0">
+                            </td>
+                            <td>{{this.category}}</td>
+                            <td><button type="submit" button_id={{this.id}} class="delete-button">Delete</button>
                                 <button type="submit" button_id={{this.id}} class="update-button">Update</button>
                             </td>
                         </tr>
                         {{/each}}
                     </table>
+                    <div class="list-entry">
+                        <form class="add-inventory">
+                            {{!-- item_name,item_format,number_items,category,createdAt,updatedAt,UserId --}}
+                            <div class="form-group">
+                                <label for="ca">New Inventory Item:</label>
+                                <input type="text" id="item-name-input" placeholder="Item Name">
+                                <label for="ca">Item Format:</label>
+                                <input type="text" id="item-format-input" placeholder="Item Format">
+                                <label for="ca">Number Items:</label>
+                                <input type="text" id="item-number-input" placeholder="0">
+                                <label for="ca">Category:</label>
+                                <input type="text" id="item-category-input" placeholder="Category">
 
-                    <form class="create-form">
-                        {{!-- item_name,item_format,number_items,category,createdAt,updatedAt,UserId --}}
-                        <div class="form-group">
-                            <label for="ca">New Inventory Item:</label>
-                            <input type="text" id="ca" name="name">
-                            <label for="ca">Item Format:</label>
-                            <input type="text" id="ca" name="item_format">
-                            <label for="ca">Number Items:</label>
-                            <input type="text" id="ca" name="num_items">
-                            <label for="ca">Category:</label>
-                            <input type="text" id="ca" name="category">
+                            </div>
 
-                        </div>
+                            <div style="display: none" id="alert" class="alert alert-danger" role="alert">
+                                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                                <span class="sr-only">Error:</span> <span class="msg"></span>
+                            </div>
 
+                            <button type="submit">Add Item</button>
 
+                        </form>
+                    </div>
 
-                        <button type="submit">Add Item</button>
-                    </form>
                 </div>
 
             </div>

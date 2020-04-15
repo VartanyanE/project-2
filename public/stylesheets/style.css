@@ -38,3 +38,30 @@ html, body, header, #intro {
   clear: both;
   display: table;
 } */
+
+button{
+
+  background-color: white;
+}
+
+table{
+  margin: 20px;
+}
+
+td {
+
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.item-number-update{
+
+  width: 50px;
+  text-align: center;
+}
+
+.list-entry{
+  border: solid thin white;
+  padding: 10px;
+}

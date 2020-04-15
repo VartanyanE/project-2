@@ -86,10 +86,37 @@ module.exports = function (app) {
 
     const results = await db.Inventory.destroy({ where: { id: req.params.id } });
     console.log('hello', results)
-    res.status(200);
-    res.json(true);
+    res.status(200).json(true);
   });
 
+  app.post("/api/create/inventory", function (req, res) {
+    db.Inventory.create({
+      item_name: req.body.item_name,
+      item_format: req.body.item_format,
+      number_items: req.body.number_items,
+      category: req.body.category,
+      UserId: req.user.id
+    })
+      .then(function () {
+        res.status(200).json(true);
+      })
+      .catch(function (err) {
+        res.status(401).json(err);
+      });
+  });
+
+  app.put("/api/update/inventory/:id", function (req, res) {
+    db.Inventory.update({
+      number_items: req.body.number_items
+
+    }, { where: { id: req.params.id } })
+      .then(function () {
+        res.status(200).json(true);
+      })
+      .catch(function (err) {
+        res.status(401).json(err);
+      });
+  });
 
 
 
@@ -104,7 +131,7 @@ module.exports = function (app) {
       });
   });
 
-  app.get("/api/shopping/:UserId/:ShoppingID", function (req, res) {
+  app.get("/api/shopping/:ShoppingID", function (req, res) {
     db.ShoppingList.findOne({
       where: {
         UserId: req.params.UserId,
@@ -113,6 +140,44 @@ module.exports = function (app) {
     })
       .then(function (dbPost) {
         res.json(dbPost);
+      });
+  });
+
+  app.delete("/api/delete/shopping/:id", async function (req, res) {
+
+    const results = await db.ShoppingList.destroy({ where: { id: req.params.id } });
+    console.log('hello', results)
+    res.status(200);
+    res.json(true);
+  });
+
+
+  app.post("/api/create/shopping", function (req, res) {
+    db.ShoppingList.create({
+      item_name: req.body.item_name,
+      item_format: req.body.item_format,
+      number_items: req.body.number_items,
+      category: req.body.category,
+      UserId: req.user.id
+    })
+      .then(function () {
+        res.status(200).json(true);
+      })
+      .catch(function (err) {
+        res.status(401).json(err);
+      });
+  });
+
+  app.put("/api/update/shopping/:id", function (req, res) {
+    db.ShoppingList.update({
+      number_items: req.body.number_items
+
+    }, { where: { id: req.params.id } })
+      .then(function () {
+        res.status(200).json(true);
+      })
+      .catch(function (err) {
+        res.status(401).json(err);
       });
   });
 
