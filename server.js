@@ -31,11 +31,11 @@ app.use(passport.session());
 // Requiring our routes
 require("./routes/html-routes.js")(app);
 require("./routes/api-routes.js")(app);
-app.use(function (req, res, next) {
-    res.locals.session = req.session;
-    console.log(res.locals.session);
-    next();
-});
+// app.use(function (req, res, next) {
+//     res.locals.session = req.session;
+//     console.log(res.locals.session);
+//     next();
+// });
 // Syncing our database and logging a message to the user upon success
 db.sequelize.sync().then(function () {
     app.listen(PORT, function () {

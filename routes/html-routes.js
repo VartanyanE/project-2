@@ -4,6 +4,8 @@ var db = require("../models");
 
 // Requiring our custom middleware for checking if a user is logged in
 var isAuthenticated = require("../config/middleware/isAuthenticated");
+var isNotAuthenticated = require("../config/middleware/isNotAuthenticated");
+var isNotAuthenticated2 = require("../config/middleware/isNotAuthenticated2");
 
 module.exports = function (app) {
 
@@ -32,14 +34,22 @@ module.exports = function (app) {
     res.render("members", { data: '' });
   });
 
-  app.get("/signup", isAuthenticated, function (req, res) {
+  app.get("/signup", function (req, res) {
     // res.sendFile(path.join(__dirname, "../public/members.html"));
     res.render("signup", { data: '' });
   });
 
-  app.get("/covid-19", isAuthenticated, function (req, res) {
+  app.get("/covid-19", isNotAuthenticated, function (req, res, ) {
+    // const user = isAuthenticated;
+    return res.render("covid-19", {
+      sessionId: req.user.id
 
-    res.render("covid-19", {
+    });
+  });
+
+  app.get("/index-user", isNotAuthenticated2, function (req, res) {
+
+    res.render("index-user", {
       sessionId: req.user.id
     });
   });
