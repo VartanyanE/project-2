@@ -49,7 +49,7 @@ module.exports = function (app) {
 
     console.log(req.user.id)
 
-    db.Inventory.findAll({ UserId: req.user.id }).then(data => {
+    db.Inventory.findAll({ where: { UserId: req.user.id } }).then(data => {
 
       var jsonData = data.map(el => el.toJSON())
 
@@ -70,9 +70,24 @@ module.exports = function (app) {
 
   app.get("/shopping", isAuthenticated, function (req, res) {
 
-    return res.render("shopping", {
-      sessionId: req.user.id
-    });
+    console.log(req.user.id)
+
+    db.ShoppingList.findAll({ where: { UserId: req.user.id } }).then(data => {
+
+      console.log("shopping_list:", data)
+      var jsonData = data.map(el => el.toJSON())
+
+      // console.log(nodeData);
+      return res.render("shopping", {
+        ShoppingList: jsonData,
+        sessionId: req.user.id
+      });
+    }).catch(err => {
+      // console.log(err)
+      res.status(404).end
+
+    })
+
   });
 
 

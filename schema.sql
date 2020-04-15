@@ -39,7 +39,9 @@ CREATE TABLE `ShoppingList`
 (
 id INT NOT NULL AUTO_INCREMENT,
 item_name VARCHAR(255) NOT NULL,
+item_format VARCHAR(255) NOT NULL,
 number_items INTEGER NOT NULL,
+category VARCHAR(255) NOT NULL,
 createdAt DATETIME,
 updatedAt DATETIME,
 UserId INTEGER NOT NULL,

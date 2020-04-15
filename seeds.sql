@@ -19,14 +19,14 @@ VALUES('Chicken of the Sea', 'can', '30','Grocery', '2020-04-08 04:43:40', '2020
 ;
 
 INSERT INTO ShoppingList
-    (item_name,number_items, createdAt,updatedAt, UserId)
+    (item_name,item_format,number_items,category, createdAt,updatedAt, UserId)
 VALUES
-    ('Starkist', 2, '2020-04-08 04:43:40', '2020-04-08 04:43:40', 1);
+    ('Starkist','can', 2,'Grocery', '2020-04-08 04:43:40', '2020-04-08 04:43:40', 1);
 
 INSERT INTO ShoppingList
-    (item_name,number_items, createdAt,updatedAt, UserId)
+    (item_name,item_format,number_items,category, createdAt,updatedAt, UserId)
 VALUES
-    ('Clorox Wipes', 1, '2020-04-08 04:43:40', '2020-04-08 04:43:40', 1);
+    ('Starkist','can', 2,'Grocery', '2020-04-08 04:43:40', '2020-04-08 04:43:40', 1);
 
- 
-    
+--  select * from Inventory;
+--  select * from Users;
