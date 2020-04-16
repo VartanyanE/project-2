@@ -19,15 +19,15 @@
                     <table>
                         {{#each ShoppingList}}
                         <tr id='item_row'>
-                            <td><input type="text" class="item-name-update" data-id={{this.id}} value={{this.item_name}}
-                                    placeholder="Item Name"></td>
+                            <td><input type="text" class="item-name-update" data-id={{this.id}}
+                                    value="{{this.item_name}}" placeholder="Item Name"> </td>
                             <td><input type="text" class="item-format-update" data-id={{this.id}}
-                                    value={{this.item_format}} placeholder="Item Packaging"></td>
+                                    value="{{this.item_format}}" placeholder="Item Packaging"></td>
                             <td><input type="text" class="item-number-update" data-id={{this.id}}
                                     value={{this.number_items}} placeholder="0">
                             </td>
                             <td><input type="text" class="item-category-update" data-id={{this.id}}
-                                    value={{this.category}} placeholder="Item Category"></td>
+                                    value="{{this.category}}" placeholder="Item Category"></td>
                             <td><button type="submit" button_id={{this.id}} class="delete-button">Delete</button>
                                 <button type="submit" button_id={{this.id}} class="update-button">Update</button>
                                 <button type="submit" button_id={{this.id}} class="move-button">Move to
