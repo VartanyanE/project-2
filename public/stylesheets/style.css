@@ -3,22 +3,36 @@ form.signup, form.login {
   width: 300px;
 }
 
-html, body, header, #intro {
+ header, #intro {
   height: 100%;
   color: white;
   font-family: 'Dosis', sans-serif;
 }
 
+html,body{
+
+  height: auto;
+  color: white;
+  font-family: 'Dosis', sans-serif;
+  background-color: black;
+}
+
 #intro {
-  background: url("../img/background.jpg")no-repeat center center fixed;
+  background: url("../img/background.jpg")no-repeat center center scroll;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  height: 100vh;
 }
 
 .top-nav-collapse {
   background-color: #24355C;
+}
+
+.view{
+
+  margin-top: 50px;
 }
 
 @media (max-width: 768px) {
@@ -41,7 +55,8 @@ html, body, header, #intro {
 
 button{
 
-  background-color: white;
+  background-color: gray;
+  color: white;
 }
 
 table{
@@ -55,13 +70,66 @@ td {
   border-bottom: 1px solid #ddd;
 }
 
+
+.line-input-2{
+
+  width: 100px;
+}
 .item-number-update{
 
   width: 50px;
   text-align: center;
 }
 
+.item-name-update{
+
+  margin-left: 5px;
+
+}
+.form-control-sm{
+  height: fit-content;
+  margin: 5px;
+  
+}
 .list-entry{
   border: solid thin white;
   padding: 10px;
 }
+
+.container-fluid{
+
+  padding: 5px;
+}
+
+input{
+
+  margin: 2px;
+}
+
+.add-button-area{
+
+  border-top: thin solid white;
+  padding-top: 5px;
+}
+
+.item-list{
+
+  line-height: 5px;
+  text-align: center;
+
+}
+
+.list-row{
+
+  border: thin solid white;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  align-content: center;
+}
+
+.btn-dark{
+  border: thin solid white;
+}
+

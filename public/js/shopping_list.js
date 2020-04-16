@@ -13,6 +13,19 @@ $(document).ready(function () {
     var itemNumberUpdate = $("input#item-number-update")
     var itemCategoryUpdate = $("input#item-category-update")
 
+    $(document).on("click", ".add-button", function (event) {
+        var buttonID = $(this).attr("button_id")
+        var updateName = $(`.item-name-update[data-id=${buttonID}]`).val()
+        var updateFormat = $(`.item-format-update[data-id=${buttonID}]`).val()
+        var updateValue = $(`.item-number-update[data-id=${buttonID}]`).val()
+        var updateCategory = $(`.item-category-update[data-id=${buttonID}]`).val()
+
+
+        addShoppingItem(updateName, updateFormat, updateValue, updateCategory);
+    });
+
+
+
     $(document).on("click", ".delete-button", function (event) {
         var buttonID = $(this).attr("button_id")
 
@@ -21,7 +34,7 @@ $(document).ready(function () {
             type: "DELETE"
         }).then(
             function (response) {
-                console.log(response);
+                // console.log(response);
                 location.reload();
             }
         );
@@ -52,7 +65,7 @@ $(document).ready(function () {
 
     function addShoppingItem(item_name, item_format, number_items, category) {
 
-        console.log('got here1:', item_name, item_format, number_items, category)
+        // console.log('got here1:', item_name, item_format, number_items, category)
         $.post("/api/create/shopping", {
             item_name: item_name,
             item_format: item_format,
@@ -60,7 +73,7 @@ $(document).ready(function () {
             category: category
         })
             .then(function (data) {
-                console.log('gothere2', data)
+                // console.log('gothere2', data)
                 window.location.replace("/shopping");
                 // If there's an error, handle it by throwing up a bootstrap alert
             })
@@ -73,7 +86,7 @@ $(document).ready(function () {
         var updateFormat = $(`.item-format-update[data-id=${buttonID}]`).val()
         var updateValue = $(`.item-number-update[data-id=${buttonID}]`).val()
         var updateCategory = $(`.item-category-update[data-id=${buttonID}]`).val()
-        console.log(updateValue)
+        // console.log(updateValue)
         // Send the DELETE request.
         $.ajax("/api/update/shopping/" + buttonID, {
             type: "PUT",
@@ -85,7 +98,7 @@ $(document).ready(function () {
             }
         }).then(
             function (response) {
-                console.log(response);
+                // console.log(response);
                 location.reload();
             }
         );
@@ -109,13 +122,13 @@ $(document).ready(function () {
             type: "DELETE"
         }).then(
             function (response) {
-                console.log(response);
+                // console.log(response);
                 location.reload();
             }
         );
 
 
-        console.log(itemData);
+        // console.log(itemData);
         if (!itemData.item_name || !itemData.item_format || !itemData.number_items || !itemData.category) {
             return;
         }
@@ -130,7 +143,7 @@ $(document).ready(function () {
 
     function addInventoryItem(item_name, item_format, number_items, category) {
 
-        console.log('got here1:', item_name, item_format, number_items, category)
+        // console.log('got here1:', item_name, item_format, number_items, category)
         $.post("/api/create/inventory", {
             item_name: item_name,
             item_format: item_format,
@@ -138,7 +151,7 @@ $(document).ready(function () {
             category: category
         })
             .then(function (data) {
-                console.log('gothere2', data)
+                // console.log('gothere2', data)
                 window.location.replace("/inventory");
                 // If there's an error, handle it by throwing up a bootstrap alert
             })
@@ -146,10 +159,10 @@ $(document).ready(function () {
     }
 
 
-    // function handleLoginErr(err) {
-    //     console.log(err)
-    //     // $("#alert .msg").text(err.responseJSON);
-    //     // $("#alert").fadeIn(500);
-    // }
+    function handleLoginErr(err) {
+        console.log(err)
+        // $("#alert .msg").text(err.responseJSON);
+        // $("#alert").fadeIn(500);
+    }
 
 });
