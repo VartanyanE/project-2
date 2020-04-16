@@ -94,7 +94,7 @@ $(document).ready(function () {
 
 
     // When the signup button is clicked, we validate the email and password are not blank
-    $(document).on("click", ".move-button", function (event) {
+    $(document).on("click", ".sl-move-button", function (event) {
         event.preventDefault();
 
         var buttonID = $(this).attr("button_id")

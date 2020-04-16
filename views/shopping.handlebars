@@ -18,6 +18,7 @@
 
                     <table>
                         {{#each ShoppingList}}
+<<<<<<< Updated upstream
                         <tr id='item_row'>
                             <td><input type="text" class="item-name-update" data-id={{this.id}}
                                     value="{{this.item_name}}" placeholder="Item Name"> </td>
@@ -34,6 +35,29 @@
                                     Inventory List</button>
 
                         </tr>
+=======
+                        <div class="row list-row">
+                            <div class="col-md-3"><input type="text" class="item-list item-name-update"
+                                    data-id={{this.id}} value="{{this.item_name}}" placeholder="Item Name"></div>
+                            <div class="col-md-2"><input type="text" class="item-list item-format-update  line-input-2"
+                                    data-id={{this.id}} value="{{this.item_format}}" placeholder="Item Packaging"></div>
+                            <div class="col-md-1"><input type="text" class="item-list item-number-update"
+                                    data-id={{this.id}} value={{this.number_items}} placeholder="0"></div>
+                            <div class="col-md-2"><input type="text"
+                                    class="item-list item-category-update  line-input-2" data-id={{this.id}}
+                                    value="{{this.category}}" placeholder="Item Category"></div>
+                            <div class="col-md-1"></div>
+                            <div class="col-md-3">
+                                <button type="submit" button_id={{this.id}} class="sl-add-button  btn-dark"><i
+                                        class="fa fa-plus"></i></button>
+                                <button type="submit" button_id={{this.id}} class="delete-button  btn-dark"><i
+                                        class="fa fa-remove"></i></button>
+                                <button type="submit" button_id={{this.id}} class="update-button  btn-dark"><i
+                                        class="fa fa-edit"></i></button>
+                                <button type="submit" button_id={{this.id}} class="sl-move-button  btn-dark"><i
+                                        class="fa fa-arrow-right"></i></button></div>
+                        </div>
+>>>>>>> Stashed changes
                         {{/each}}
                     </table>
                     <div class="list-entry">
