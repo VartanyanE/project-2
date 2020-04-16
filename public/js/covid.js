@@ -30,15 +30,15 @@ $(document).ready(function () {
 });
 
 // NEW ARTICLES ON COVID-19
-axios
-  .get(
-    "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=coronavirus&api-key=YMc1gccWtljsNRIaEKZEZBHnRni3CLGx"
-  )
-  .then((response) => {
-    // handle success
-    console.log(response);
-  })
-  .catch((error) => {
-    // handle error
-    console.log(error);
-  });
+// axios
+//   .get(
+//     "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=coronavirus&api-key=YMc1gccWtljsNRIaEKZEZBHnRni3CLGx"
+//   )
+//   .then((response) => {
+//     // handle success
+//     console.log(response);
+//   })
+//   .catch((error) => {
+//     // handle error
+//     console.log(error);
+//   });
