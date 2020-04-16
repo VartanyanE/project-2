@@ -6,6 +6,8 @@
                     <h4>Shopping List</h4>
                     <div class="container-fluid list-area">
                         {{#each ShoppingList}}
+
+
                         <div class="row list-row">
                             <div class="col-md-3"><input type="text" class="item-list item-name-update"
                                     data-id={{this.id}} value="{{this.item_name}}" placeholder="Item Name"></div>
@@ -24,9 +26,11 @@
                                         class="fa fa-remove"></i></button>
                                 <button type="submit" button_id={{this.id}} class="update-button  btn-dark"><i
                                         class="fa fa-edit"></i></button>
-                                <button type="submit" button_id={{this.id}} class="move-button  btn-dark"><i
+
+                                <button type="submit" button_id={{this.id}} class="sl-move-button  btn-dark"><i
                                         class="fa fa-arrow-right"></i></button></div>
                         </div>
+
                         {{/each}}
                     </div>
                     <div class="lcontainer-fluid list-entry">
