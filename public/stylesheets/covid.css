@@ -1,0 +1,28 @@
+.jumbotron {
+  background-image: url("../img/socialdistancing.jpg");
+  background-size: cover;
+  color: white;
+  text-shadow: 2px 2px black;
+}
+
+.card {
+  color: black;
+}
+
+.my-custom-scrollbar {
+  position: relative;
+  height: 250px;
+  overflow: auto;
+}
+.table-wrapper-scroll-y {
+  display: block;
+}
+
+.table {
+  margin: auto;
+  width: 100% !important;
+}
+.view {
+  background-image: none;
+  background-color: white;
+}
