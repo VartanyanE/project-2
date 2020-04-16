@@ -70,10 +70,21 @@ td {
   border-bottom: 1px solid #ddd;
 }
 
+
+.line-input-2{
+
+  width: 100px;
+}
 .item-number-update{
 
   width: 50px;
   text-align: center;
+}
+
+.item-name-update{
+
+  margin-left: 5px;
+
 }
 .form-control-sm{
   height: fit-content;
@@ -115,8 +126,10 @@ input{
   margin-top: 5px;
   padding-top: 5px;
   padding-bottom: 5px;
+  align-content: center;
 }
 
 .btn-dark{
   border: thin solid white;
 }
+

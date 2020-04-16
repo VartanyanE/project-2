@@ -1,41 +1,31 @@
 <div id="intro" class="view">
-
     <div class="mask rgba-black-strong">
-
         <div class="container-fluid d-flex align-items-center justify-content-center h-100">
-
             <div class="row d-flex justify-content-center text-center">
-
                 <div class="col-md-12">
-
+                    <h2>Shopping List</h2>
                     <div class="container-fluid list-area">
-                        <h2>Shopping List</h2>
-
-
                         {{#each ShoppingList}}
                         <div class="row list-row">
-                            <div class="col-md-1"></div>
-
-                            <div class="col-md-2"><input type="text" class="item-name-update" data-id={{this.id}}
-                                    value="{{this.item_name}}" placeholder="Item Name"></div>
-                            <div class="col-md-2"><input type="text" class="item-format-update" data-id={{this.id}}
-                                    value="{{this.item_format}}" placeholder="Item Packaging"></div>
-                            <div class="col-md-1"><input type="text" class="item-number-update" data-id={{this.id}}
-                                    value={{this.number_items}} placeholder="0"></div>
-
-                            <div class="col-md-2"><input type="text" class="item-category-update" data-id={{this.id}}
+                            <div class="col-md-3"><input type="text" class="item-list item-name-update"
+                                    data-id={{this.id}} value="{{this.item_name}}" placeholder="Item Name"></div>
+                            <div class="col-md-2"><input type="text" class="item-list item-format-update  line-input-2"
+                                    data-id={{this.id}} value="{{this.item_format}}" placeholder="Item Packaging"></div>
+                            <div class="col-md-1"><input type="text" class="item-list item-number-update"
+                                    data-id={{this.id}} value={{this.number_items}} placeholder="0"></div>
+                            <div class="col-md-2"><input type="text"
+                                    class="item-list item-category-update  line-input-2" data-id={{this.id}}
                                     value="{{this.category}}" placeholder="Item Category"></div>
-                            <div class="col-md-4"><button type="submit" button_id={{this.id}}
-                                    class="delete-button">Delete</button>
-                                <button type="submit" button_id={{this.id}} class="update-button">Update</button>
-                                <button type="submit" button_id={{this.id}} class="move-button">Move to
-                                    Inventory List</button></div>
+                            <div class="col-md-1"></div>
+                            <div class="col-md-3"><button type="submit" button_id={{this.id}} class="delete-button"><i
+                                        class="fa fa-remove"></i></button>
+                                <button type="submit" button_id={{this.id}} class="update-button"><i
+                                        class="fa fa-edit"></i></button>
+                                <button type="submit" button_id={{this.id}} class="move-button"><i
+                                        class="fa fa-arrow-right"></i></button></div>
                         </div>
-
                         {{/each}}
-
                     </div>
-
                     <div class="lcontainer-fluid list-entry">
                         <form class="add-shopping form-control-sm">
                             <div class="form-group">
@@ -54,7 +44,8 @@
                                 <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
                                 <span class="sr-only">Error:</span> <span class="msg"></span>
                             </div>
-                            <div class="add-button-area"><button type="submit">Add Item</button></div>
+                            <div class="add-button-area"><button type="submit" class="add-button btn-dark">Add
+                                    Item</button></div>
                         </form>
                     </div>
                 </div>
