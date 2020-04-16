@@ -30,7 +30,7 @@ SHOPPING LIST- Easy to use shopping list generator.
 ## Motivation
 
 
-This project was motivated by the global pandemic caused by Covid-19.  The threat of being quarantined and stores runnning out of essential products motivated us to create a quick and easy inventory tracker.  
+This project was motivated by the global pandemic caused by Covid-19.  The threat of being quarantined and stores running out of essential products motivated us to create a quick and easy inventory tracker.  
 
 
 ## Installation
