@@ -3,7 +3,7 @@
         <div class="container-fluid d-flex align-items-center justify-content-center h-100">
             <div class="row d-flex justify-content-center text-center">
                 <div class="col-md-12">
-                    <h2>Shopping List</h2>
+                    <h4>Shopping List</h4>
                     <div class="container-fluid list-area">
                         {{#each ShoppingList}}
                         <div class="row list-row">
@@ -17,11 +17,14 @@
                                     class="item-list item-category-update  line-input-2" data-id={{this.id}}
                                     value="{{this.category}}" placeholder="Item Category"></div>
                             <div class="col-md-1"></div>
-                            <div class="col-md-3"><button type="submit" button_id={{this.id}} class="delete-button"><i
+                            <div class="col-md-3">
+                                <button type="submit" button_id={{this.id}} class="add-button  btn-dark"><i
+                                        class="fa fa-plus"></i></button>
+                                <button type="submit" button_id={{this.id}} class="delete-button  btn-dark"><i
                                         class="fa fa-remove"></i></button>
-                                <button type="submit" button_id={{this.id}} class="update-button"><i
+                                <button type="submit" button_id={{this.id}} class="update-button  btn-dark"><i
                                         class="fa fa-edit"></i></button>
-                                <button type="submit" button_id={{this.id}} class="move-button"><i
+                                <button type="submit" button_id={{this.id}} class="move-button  btn-dark"><i
                                         class="fa fa-arrow-right"></i></button></div>
                         </div>
                         {{/each}}
