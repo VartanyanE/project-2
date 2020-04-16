@@ -13,7 +13,7 @@ $(document).ready(function () {
     var itemNumberUpdate = $("input#item-number-update")
     var itemCategoryUpdate = $("input#item-category-update")
 
-    $(document).on("click", ".add-button", function (event) {
+    $(document).on("click", ".sl-add-button", function (event) {
         var buttonID = $(this).attr("button_id")
         var updateName = $(`.item-name-update[data-id=${buttonID}]`).val()
         var updateFormat = $(`.item-format-update[data-id=${buttonID}]`).val()
@@ -159,10 +159,10 @@ $(document).ready(function () {
     }
 
 
-    function handleLoginErr(err) {
-        console.log(err)
-        // $("#alert .msg").text(err.responseJSON);
-        // $("#alert").fadeIn(500);
-    }
+    // function handleLoginErr(err) {
+    //     console.log(err)
+    //     // $("#alert .msg").text(err.responseJSON);
+    //     // $("#alert").fadeIn(500);
+    // }
 
 });
