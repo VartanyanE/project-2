@@ -126,7 +126,7 @@ $(document).ready(function () {
             return;
         }
         // If we have an email and password, run the signUpUser function
-        addShoppingItem(itemData.item_name, itemData.item_format, itemData.number_items, itemData.category);
+        addMoveToShoppingItem(itemData.item_name, itemData.item_format, itemData.number_items, itemData.category);
 
 
 
@@ -134,7 +134,7 @@ $(document).ready(function () {
     });
 
 
-    function addShoppingItem(item_name, item_format, number_items, category) {
+    function addMoveToShoppingItem(item_name, item_format, number_items, category) {
 
         // console.log('got here1:', item_name, item_format, number_items, category)
         $.post("/api/create/shopping", {
@@ -145,7 +145,8 @@ $(document).ready(function () {
         })
             .then(function (data) {
                 // console.log('gothere2', data)
-                window.location.replace("/shopping");
+                //window.location.replace("/shopping");
+                location.reload();
                 // If there's an error, handle it by throwing up a bootstrap alert
             })
             .catch(handleLoginErr);
