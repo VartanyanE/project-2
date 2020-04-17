@@ -133,7 +133,7 @@ $(document).ready(function () {
             return;
         }
         // If we have an email and password, run the signUpUser function
-        addInventoryItem(itemData.item_name, itemData.item_format, itemData.number_items, itemData.category);
+        addMoveToInventoryItem(itemData.item_name, itemData.item_format, itemData.number_items, itemData.category);
 
 
 
@@ -141,7 +141,7 @@ $(document).ready(function () {
     });
 
 
-    function addInventoryItem(item_name, item_format, number_items, category) {
+    function addMoveToInventoryItem(item_name, item_format, number_items, category) {
 
         // console.log('got here1:', item_name, item_format, number_items, category)
         $.post("/api/create/inventory", {
