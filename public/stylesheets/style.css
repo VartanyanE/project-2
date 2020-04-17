@@ -92,6 +92,7 @@ td {
 .list-entry {
   border: solid thin white;
   padding: 10px;
+  text-align: center;
 }
 
 .container-fluid {
