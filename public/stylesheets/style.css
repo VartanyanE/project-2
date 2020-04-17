@@ -3,7 +3,9 @@ form.signup, form.login {
   width: 300px;
 }
 
- header, #intro {
+
+html, body, header, #intro, #introShopping, #introMain {
+
   height: 100%;
   color: white;
   font-family: 'Dosis', sans-serif;
@@ -24,6 +26,22 @@ html,body{
   -o-background-size: cover;
   background-size: cover;
   height: 100vh;
+}
+
+#introShopping {
+  background: url("../img/shopping2.jpg")no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+#introMain {
+  background: url("../img/store1.jpg")no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 .top-nav-collapse {
@@ -53,33 +71,29 @@ html,body{
   display: table;
 } */
 
-button{
 
-  background-color: gray;
-  color: white;
+button {
+  background-color: white;
+
 }
 
-table{
+table {
   margin: 20px;
 }
 
 td {
-
   padding: 15px;
   text-align: left;
   border-bottom: 1px solid #ddd;
 }
 
 
-.line-input-2{
-
-  width: 100px;
-}
-.item-number-update{
+.item-number-update {
 
   width: 50px;
   text-align: center;
 }
+
 
 .item-name-update{
 
@@ -92,6 +106,7 @@ td {
   
 }
 .list-entry{
+
   border: solid thin white;
   padding: 10px;
 }
