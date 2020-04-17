@@ -1,4 +1,5 @@
- <img src="./public/img/readme2.png" alt="Iventory Tracker" style="border-radius: 16px" width="150"/>
+## TrackSnax 
+<a href="https://covidsucks.herokuapp.com/">Try It Out</a>
 
 [![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://github.com/Naereen/StrapDown.js/blob/master/LICENSE)
 
