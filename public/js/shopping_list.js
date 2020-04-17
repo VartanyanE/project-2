@@ -152,7 +152,8 @@ $(document).ready(function () {
         })
             .then(function (data) {
                 // console.log('gothere2', data)
-                window.location.replace("/inventory");
+                //window.location.replace("/inventory");
+                location.reload();
                 // If there's an error, handle it by throwing up a bootstrap alert
             })
             .catch(handleLoginErr);
