@@ -1,49 +1,52 @@
+
 <div id="introShopping" class="view">
 
+
     <div class="mask rgba-black-strong">
-        <br>
-        <br>
-        <br>
-        <br>
-
-
         <div class="container-fluid d-flex align-items-center justify-content-center h-100">
-
             <div class="row d-flex justify-content-center text-center">
-
                 <div class="col-md-12">
-
-
-                    <h2>Shopping List</h2>
-
-                    <table>
+                    <h4>Shopping List</h4>
+                    <div class="container-fluid list-area">
                         {{#each ShoppingList}}
-                        <tr id='item_row'>
-                            <td>{{this.item_name}}</td>
-                            <td>{{this.item_format}}</td>
-                            <td><input type="text" class="item-number-update" data-id={{this.id}}
-                                    value={{this.number_items}} placeholder="0">
-                            </td>
-                            <td>{{this.category}}</td>
-                            <td><button type="submit" button_id={{this.id}} class="delete-button">Delete</button>
-                                <button type="submit" button_id={{this.id}} class="update-button">Update</button>
-                                {{!-- <button type="submit" button_id={{this.id}} class="move-button">To Inventory</button> --}}
 
-                        </tr>
+
+                        <div class="row list-row">
+                            <div class="col-md-3"><input type="text" class="item-list item-name-update"
+                                    data-id={{this.id}} value="{{this.item_name}}" placeholder="Item Name"></div>
+                            <div class="col-md-2"><input type="text" class="item-list item-format-update  line-input-2"
+                                    data-id={{this.id}} value="{{this.item_format}}" placeholder="Item Packaging"></div>
+                            <div class="col-md-1"><input type="text" class="item-list item-number-update"
+                                    data-id={{this.id}} value={{this.number_items}} placeholder="0"></div>
+                            <div class="col-md-2"><input type="text"
+                                    class="item-list item-category-update  line-input-2" data-id={{this.id}}
+                                    value="{{this.category}}" placeholder="Item Category"></div>
+                            <div class="col-md-1"></div>
+                            <div class="col-md-3">
+                                <button type="submit" button_id={{this.id}} class="sl-add-button  btn-dark"><i
+                                        class="fa fa-plus"></i></button>
+                                <button type="submit" button_id={{this.id}} class="delete-button  btn-dark"><i
+                                        class="fa fa-remove"></i></button>
+                                <button type="submit" button_id={{this.id}} class="update-button  btn-dark"><i
+                                        class="fa fa-edit"></i></button>
+
+                                <button type="submit" button_id={{this.id}} class="sl-move-button  btn-dark"><i
+                                        class="fa fa-arrow-right"></i></button></div>
+                        </div>
+
                         {{/each}}
-                    </table>
-                    <div class="list-entry">
-                        <form class="add-shopping">
-                            {{!-- item_name,item_format,number_items,category,createdAt,updatedAt,UserId --}}
+                    </div>
+                    <div class="lcontainer-fluid list-entry">
+                        <form class="add-shopping form-control-sm">
                             <div class="form-group">
-                                <label for="ca">New Shopping Item:</label>
-                                <input type="text" id="item-name-input" placeholder="Item Name">
-                                <label for="ca">Item Format:</label>
-                                <input type="text" id="item-format-input" placeholder="Item Format">
-                                <label for="ca">Number Items:</label>
-                                <input type="text" id="item-number-input" placeholder="0">
-                                <label for="ca">Category:</label>
-                                <input type="text" id="item-category-input" placeholder="Category">
+                                {{!-- <label for="ca">New Shopping Item:</label> --}}
+                                <input type="text" id="item-name-input" placeholder="Starkist Tuna">
+                                {{!-- <label for="ca">Item Format:</label> --}}
+                                <input type="text" id="item-format-input" placeholder="Can">
+                                {{!-- <label for="ca">Number Items:</label> --}}
+                                <input type="text" id="item-number-input" placeholder="# Items">
+                                {{!-- <label for="ca">Category:</label> --}}
+                                <input type="text" id="item-category-input" placeholder="Grocery">
 
                             </div>
 
@@ -51,9 +54,8 @@
                                 <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
                                 <span class="sr-only">Error:</span> <span class="msg"></span>
                             </div>
-
-                            <button type="submit">Add Item</button>
-
+                            <div class="add-button-area"><button type="submit" class="add-button btn-dark"><i
+                                        class="fa fa-plus"></i></button></div>
                         </form>
                     </div>
                 </div>

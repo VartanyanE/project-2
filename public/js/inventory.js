@@ -9,6 +9,18 @@ $(document).ready(function () {
     var itemCategoryInput = $("input#item-category-input")
     var itemUserId = 1
 
+    $(document).on("click", ".add-button", function (event) {
+        var buttonID = $(this).attr("button_id")
+        var updateName = $(`.item-name-update[data-id=${buttonID}]`).val()
+        var updateFormat = $(`.item-format-update[data-id=${buttonID}]`).val()
+        var updateValue = $(`.item-number-update[data-id=${buttonID}]`).val()
+        var updateCategory = $(`.item-category-update[data-id=${buttonID}]`).val()
+
+
+        addInventoryItem(updateName, updateFormat, updateValue, updateCategory);
+    });
+
+
     $(document).on("click", ".delete-button", function (event) {
         var buttonID = $(this).attr("button_id")
 
@@ -17,7 +29,7 @@ $(document).ready(function () {
             type: "DELETE"
         }).then(
             function (response) {
-                console.log(response);
+                // console.log(response);
                 location.reload();
             }
         );
@@ -47,7 +59,7 @@ $(document).ready(function () {
 
     function addInventoryItem(item_name, item_format, number_items, category) {
 
-        console.log('got here1:', item_name, item_format, number_items, category)
+        // console.log('got here1:', item_name, item_format, number_items, category)
         $.post("/api/create/inventory", {
             item_name: item_name,
             item_format: item_format,
@@ -55,7 +67,7 @@ $(document).ready(function () {
             category: category
         })
             .then(function (data) {
-                console.log('gothere2', data)
+                // console.log('gothere2', data)
                 window.location.replace("/inventory");
                 // If there's an error, handle it by throwing up a bootstrap alert
             })
@@ -64,36 +76,79 @@ $(document).ready(function () {
 
     $(document).on("click", ".update-button", function (event) {
         var buttonID = $(this).attr("button_id")
+        var updateName = $(`.item-name-update[data-id=${buttonID}]`).val()
+        var updateFormat = $(`.item-format-update[data-id=${buttonID}]`).val()
         var updateValue = $(`.item-number-update[data-id=${buttonID}]`).val()
-        console.log(updateValue)
+        var updateCategory = $(`.item-category-update[data-id=${buttonID}]`).val()
+        // console.log(updateValue)
         // Send the DELETE request.
         $.ajax("/api/update/inventory/" + buttonID, {
             type: "PUT",
-            data: { number_items: updateValue }
+            data: {
+                item_name: updateName,
+                item_format: updateFormat,
+                number_items: updateValue,
+                category: updateCategory
+            }
         }).then(
             function (response) {
-                console.log(response);
+                // console.log(response);
                 location.reload();
             }
         );
     });
 
 
-    function updateInventoryItem(item_name, item_format, number_items, category, UserId) {
+    // When the signup button is clicked, we validate the email and password are not blank
+    $(document).on("click", ".move-button", function (event) {
+        event.preventDefault();
 
-        console.log('got here1:', item_name, item_format, number_items, category, UserId)
-        // $.post("/api/create/inventory", {
-        //     item_name: item_name,
-        //     item_format: item_format,
-        //     number_items: number_items,
-        //     category: category
-        // })
-        //     .then(function (data) {
-        //         console.log('gothere2', data)
-        //         // window.location.replace("/inventory");
-        //         // If there's an error, handle it by throwing up a bootstrap alert
-        //     })
-        //     .catch(handleLoginErr);
+        var buttonID = $(this).attr("button_id")
+        var itemData = {
+            item_name: $(`.item-name-update[data-id=${buttonID}]`).val(),
+            item_format: $(`.item-format-update[data-id=${buttonID}]`).val(),
+            number_items: $(`.item-number-update[data-id=${buttonID}]`).val(),
+            category: $(`.item-category-update[data-id=${buttonID}]`).val(),
+        };
+
+        $.ajax("/api/delete/inventory/" + buttonID, {
+            type: "DELETE"
+        }).then(
+            function (response) {
+                // console.log(response);
+                // location.reload();
+            }
+        );
+
+
+        // console.log(itemData);
+        if (!itemData.item_name || !itemData.item_format || !itemData.number_items || !itemData.category) {
+            return;
+        }
+        // If we have an email and password, run the signUpUser function
+        addShoppingItem(itemData.item_name, itemData.item_format, itemData.number_items, itemData.category);
+
+
+
+
+    });
+
+
+    function addShoppingItem(item_name, item_format, number_items, category) {
+
+        // console.log('got here1:', item_name, item_format, number_items, category)
+        $.post("/api/create/shopping", {
+            item_name: item_name,
+            item_format: item_format,
+            number_items: number_items,
+            category: category
+        })
+            .then(function (data) {
+                // console.log('gothere2', data)
+                window.location.replace("/shopping");
+                // If there's an error, handle it by throwing up a bootstrap alert
+            })
+            .catch(handleLoginErr);
     }
     function handleLoginErr(err) {
         console.log(err)

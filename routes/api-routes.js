@@ -105,9 +105,18 @@ module.exports = function (app) {
       });
   });
 
+
+
+
+
+
+
   app.put("/api/update/inventory/:id", function (req, res) {
     db.Inventory.update({
-      number_items: req.body.number_items
+      item_name: req.body.item_name,
+      item_format: req.body.item_format,
+      number_items: req.body.number_items,
+      category: req.body.category
 
     }, { where: { id: req.params.id } })
       .then(function () {
@@ -170,7 +179,10 @@ module.exports = function (app) {
 
   app.put("/api/update/shopping/:id", function (req, res) {
     db.ShoppingList.update({
-      number_items: req.body.number_items
+      item_name: req.body.item_name,
+      item_format: req.body.item_format,
+      number_items: req.body.number_items,
+      category: req.body.category
 
     }, { where: { id: req.params.id } })
       .then(function () {
