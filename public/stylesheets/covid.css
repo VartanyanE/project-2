@@ -16,6 +16,7 @@
 }
 .table-wrapper-scroll-y {
   display: block;
+  border: 1px solid lightgrey;
 }
 
 .table {
@@ -25,4 +26,19 @@
 .view {
   background-image: none;
   background-color: white;
+}
+.testimonial-group > .row {
+  width: 100% !important;
+  padding-top: 3rem;
+  overflow-x: auto;
+}
+.testimonial-group > .row > .col-sm-4 {
+  display: inline-block;
+}
+.card {
+  min-height: 300px;
+}
+.card-body {
+  text-overflow: ellipsis;
+  word-wrap: break-word;
 }
