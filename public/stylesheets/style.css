@@ -124,3 +124,9 @@ input {
 .btn-dark {
   border: thin solid white;
 }
+
+.col-md-3,.col-md-2,.col-md-1{
+
+  margin: 0px;
+  padding: 2px 0px 2px 0px;
+}
