@@ -6,13 +6,15 @@ $(document).ready(function () {
     var itemFormatInput = $("input#item-format-input")
     var itemNumberImput = $("input#item-number-input")
     var itemCategoryInput = $("input#item-category-input")
-    var itemUserId = 1
+    // var itemUserId = 1
 
-    var itemNameUpdate = $("input#item-name-update")
-    var itemFormatUpdate = $("input#item-format-update")
-    var itemNumberUpdate = $("input#item-number-update")
-    var itemCategoryUpdate = $("input#item-category-update")
+    // var itemNameUpdate = $("input#item-name-update")
+    // var itemFormatUpdate = $("input#item-format-update")
+    // var itemNumberUpdate = $("input#item-number-update")
+    // var itemCategoryUpdate = $("input#item-category-update")
 
+
+    //Used to add a shopping list item based on a previously created item.
     $(document).on("click", ".sl-add-button", function (event) {
         var buttonID = $(this).attr("button_id")
         var updateName = $(`.item-name-update[data-id=${buttonID}]`).val()
@@ -25,8 +27,8 @@ $(document).ready(function () {
     });
 
 
-
-    $(document).on("click", ".delete-button", function (event) {
+    //Used to delete a previously created item.
+    $(document).on("click", ".sl-delete-button", function (event) {
         var buttonID = $(this).attr("button_id")
 
         // Send the DELETE request.
@@ -42,7 +44,7 @@ $(document).ready(function () {
 
 
 
-    // When the signup button is clicked, we validate the email and password are not blank
+    // Used to create a completely brand new item for shopping list.
     addShoppingForm.on("submit", function (event) {
         event.preventDefault();
         var itemData = {
@@ -51,11 +53,11 @@ $(document).ready(function () {
             number_items: itemNumberImput.val().trim(),
             category: itemCategoryInput.val().trim()
         };
-
+        // If the fields are blank, do nothing.
         if (!itemData.item_name || !itemData.item_format || !itemData.number_items || !itemData.category) {
             return;
         }
-        // If we have an email and password, run the signUpUser function
+
         addShoppingItem(itemData.item_name, itemData.item_format, itemData.number_items, itemData.category);
         itemNameInput.val("");
         itemNumberImput.val("0");
@@ -63,6 +65,7 @@ $(document).ready(function () {
 
     });
 
+    //The function that actually creates a completely new item typed into the form.
     function addShoppingItem(item_name, item_format, number_items, category) {
 
         // console.log('got here1:', item_name, item_format, number_items, category)
@@ -80,7 +83,8 @@ $(document).ready(function () {
             .catch(handleLoginErr);
     }
 
-    $(document).on("click", ".update-button", function (event) {
+    //Will update the item.
+    $(document).on("click", ".sl-update-button", function (event) {
         var buttonID = $(this).attr("button_id")
         var updateName = $(`.item-name-update[data-id=${buttonID}]`).val()
         var updateFormat = $(`.item-format-update[data-id=${buttonID}]`).val()
@@ -99,14 +103,19 @@ $(document).ready(function () {
         }).then(
             function (response) {
                 // console.log(response);
-                location.reload();
+                // location.reload();
+
+                $(".modal").modal("toggle")
             }
         );
     });
 
 
 
-    // When the signup button is clicked, we validate the email and password are not blank
+
+
+
+    // When the signup button is clicked, it will move item from shopping list to inventory list.
     $(document).on("click", ".sl-move-button", function (event) {
         event.preventDefault();
 
@@ -140,7 +149,7 @@ $(document).ready(function () {
 
     });
 
-
+    //The function that actually moves an item from shopping list to inventory list. 
     function addMoveToInventoryItem(item_name, item_format, number_items, category) {
 
         // console.log('got here1:', item_name, item_format, number_items, category)
@@ -160,10 +169,10 @@ $(document).ready(function () {
     }
 
 
-    // function handleLoginErr(err) {
-    //     console.log(err)
-    //     // $("#alert .msg").text(err.responseJSON);
-    //     // $("#alert").fadeIn(500);
-    // }
+    function handleLoginErr(err) {
+        console.log(err)
+        // $("#alert .msg").text(err.responseJSON);
+        // $("#alert").fadeIn(500);
+    }
 
 });
