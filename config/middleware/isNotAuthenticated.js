@@ -56,4 +56,5 @@ module.exports = function (req, res, next) {
   //     // handle error
   //     console.log(error);
   //   });
+  res.render("covid-19", { data: '' });
 };
