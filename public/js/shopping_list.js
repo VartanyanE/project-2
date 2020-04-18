@@ -36,13 +36,10 @@ $(document).ready(function () {
             type: "DELETE"
         }).then(
             function (response) {
-                // console.log(response);
                 location.reload();
             }
         );
     });
-
-
 
     // Used to create a completely brand new item for shopping list.
     addShoppingForm.on("submit", function (event) {
@@ -67,8 +64,6 @@ $(document).ready(function () {
 
     //The function that actually creates a completely new item typed into the form.
     function addShoppingItem(item_name, item_format, number_items, category) {
-
-        // console.log('got here1:', item_name, item_format, number_items, category)
         $.post("/api/create/shopping", {
             item_name: item_name,
             item_format: item_format,
@@ -76,7 +71,6 @@ $(document).ready(function () {
             category: category
         })
             .then(function (data) {
-                // console.log('gothere2', data)
                 window.location.replace("/shopping");
                 // If there's an error, handle it by throwing up a bootstrap alert
             })
@@ -90,8 +84,7 @@ $(document).ready(function () {
         var updateFormat = $(`.item-format-update[data-id=${buttonID}]`).val()
         var updateValue = $(`.item-number-update[data-id=${buttonID}]`).val()
         var updateCategory = $(`.item-category-update[data-id=${buttonID}]`).val()
-        // console.log(updateValue)
-        // Send the DELETE request.
+
         $.ajax("/api/update/shopping/" + buttonID, {
             type: "PUT",
             data: {
@@ -102,8 +95,6 @@ $(document).ready(function () {
             }
         }).then(
             function (response) {
-                // console.log(response);
-                // location.reload();
 
                 $(".modal").modal("toggle")
             }
@@ -131,13 +122,10 @@ $(document).ready(function () {
             type: "DELETE"
         }).then(
             function (response) {
-                // console.log(response);
                 location.reload();
             }
         );
 
-
-        // console.log(itemData);
         if (!itemData.item_name || !itemData.item_format || !itemData.number_items || !itemData.category) {
             return;
         }
@@ -152,7 +140,6 @@ $(document).ready(function () {
     //The function that actually moves an item from shopping list to inventory list. 
     function addMoveToInventoryItem(item_name, item_format, number_items, category) {
 
-        // console.log('got here1:', item_name, item_format, number_items, category)
         $.post("/api/create/inventory", {
             item_name: item_name,
             item_format: item_format,
@@ -160,8 +147,6 @@ $(document).ready(function () {
             category: category
         })
             .then(function (data) {
-                // console.log('gothere2', data)
-                //window.location.replace("/inventory");
                 location.reload();
                 // If there's an error, handle it by throwing up a bootstrap alert
             })
@@ -171,8 +156,6 @@ $(document).ready(function () {
 
     function handleLoginErr(err) {
         console.log(err)
-        // $("#alert .msg").text(err.responseJSON);
-        // $("#alert").fadeIn(500);
     }
 
 });

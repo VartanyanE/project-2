@@ -34,9 +34,9 @@ module.exports = function (app) {
 
   // Route for logging user out
   app.get("/logout", function (req, res) {
-    console.log("before:", req.user);
+    // console.log("before:", req.user);
     req.logout();
-    console.log("after:", req.user);
+    // console.log("after:", req.user);
     res.redirect("/");
   });
 
@@ -83,7 +83,7 @@ module.exports = function (app) {
     const results = await db.Inventory.destroy({
       where: { id: req.params.id },
     });
-    console.log("hello", results);
+    // console.log("hello", results);
     res.status(200).json(true);
   });
 
@@ -146,7 +146,7 @@ module.exports = function (app) {
     const results = await db.ShoppingList.destroy({
       where: { id: req.params.id },
     });
-    console.log("hello", results);
+    // console.log("hello", results);
     res.status(200);
     res.json(true);
   });
