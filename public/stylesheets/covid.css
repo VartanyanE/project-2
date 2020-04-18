@@ -1,14 +1,28 @@
 .jumbotron {
-  background-image: url("../img/socialdistancing.jpg");
+  background-image: url("../img/stay_home.jpg");
   background-size: cover;
+  color: white;
+}
+.jumbotron h1 {
   color: white;
   text-shadow: 2px 2px black;
 }
 
-.card {
+.jumbotron h1:hover {
   color: black;
+  text-shadow: 2px 2px white;
 }
 
+.jumbotron p {
+  color: white;
+  text-shadow: 2px 2px black;
+}
+.jumbotron p:hover {
+  color: white;
+}
+.searchContainer {
+  width: 75%;
+}
 .my-custom-scrollbar {
   position: relative;
   height: 250px;
@@ -16,16 +30,21 @@
 }
 .table-wrapper-scroll-y {
   display: block;
-  border: 1px solid lightgrey;
 }
 
 .table {
   margin: auto;
   width: 100% !important;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .view {
   background-image: none;
   background-color: white;
+}
+.articleIntro {
+  padding-top: 20px;
+  font-size: 35px;
+  margin: auto;
 }
 .testimonial-group > .row {
   width: 100% !important;
@@ -37,6 +56,8 @@
 }
 .card {
   min-height: 300px;
+  color: black;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .card-body {
   text-overflow: ellipsis;

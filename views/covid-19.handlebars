@@ -9,90 +9,92 @@
 
                 <div class="col-md-12">
 
-                    <div class="jumbotron">
-                        <div class="container">
-                            <h1 class="display-4">COVID-19</h1>
-                            <p class="lead">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio deleniti ex
-                                sit? Quia mollitia explicabo, veniam autem animi fugiat asperiores dignissimos aliquid,
-                                temporibus totam pariatur, neque id quasi dolore vitae?</p>
-                        </div>
-                    </div>
+                    <a style="text-decoration:none" href="https://www.cdc.gov/coronavirus/2019-ncov/index.html">
+                        <div class="jumbotron">
 
-
-
-                    <div class="input-group mub-3 w-50 p-1 mx-auto">
-                        <input id="button-addon2" type="text" class="form-control" placeholder="Search by State"
-                            aria-label="Search by State" aria-describedby="button-addon2">
-                        <div class="input-group-append">
-                            <button class="btn btn-outline" type="button" id="button-addon2">Submit</button>
-                        </div>
-                    </div>
-
-                    <!-- TABLE TO DISPLAY RESULTS FOR COVID -->
-
-                    <div class="table-wrapper-scroll-y my-custom-scrollbar">
-                        <table id="stateTable" class="table table-striped table-bordered table-sm" cellspacing="0"
-                            width="100%">
-                            <thead>
-                                <tr id="state">
-                                    <th class="th-sm">State
-                                    </th>
-                                    <th class="th-sm">Tested Positive
-                                    </th>
-                                    <th class="th-sm">Tested Negative
-                                    </th>
-                                    <th class="th-sm">Deaths
-                                    </th>
-                                    <th class="th-sm">Recovered
-                                    </th>
-                                    <th class="th-sm">Total
-                                    </th>
-                                </tr>
-                            </thead>
-                            {{#each allStates}}
-                            <tbody id="data">
-                                <tr>
-                                    <td id="state">{{state}}</td>
-                                    <td id="positive">{{positive}}</td>
-                                    <td id="negative">{{negative}}</td>
-                                    <td id="death">{{death}}</td>
-                                    <td id="recovered">{{recovered}}</td>
-                                    <td id="total">{{total}}</td>
-                                </tr>
-                            </tbody>
-                            {{/each}}
-                        </table>
-
-                    </div>
+                            <div class="container">
+                                <h1 class="display-4">COVID-19</h1>
+                                <p class="lead">There is no specific treatment
+                                    for COVID-19, but you can seek
+                                    medical care to help relieve
+                                    your symptoms.</p>
+                    </a>
                 </div>
 
             </div>
 
-        </div>
+            <div class="input-group mub-3 w-75 p-1 mx-auto">
+                <input id="button-addon2" type="text" class="form-control" placeholder="Search by State"
+                    aria-label="Search by State" aria-describedby="button-addon2">
+            </div>
+            <br>
+            <!-- TABLE TO DISPLAY RESULTS FOR COVID -->
 
+            <div class="table-wrapper-scroll-y my-custom-scrollbar w-80 mx-auto">
+                <table id="stateTable" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+                    <thead>
+                        <tr id="state">
+                            <th class="th-sm">State
+                            </th>
+                            <th class="th-sm">Tested Positive
+                            </th>
+                            <th class="th-sm">Tested Negative
+                            </th>
+                            <th class="th-sm">Deaths
+                            </th>
+                            <th class="th-sm">Recovered
+                            </th>
+                            <th class="th-sm">Total
+                            </th>
+                        </tr>
+                    </thead>
+                    {{#each allStates}}
+                    <tbody id="data">
+                        <tr>
+                            <td id="state">{{state}}</td>
+                            <td id="positive">{{positive}}</td>
+                            <td id="negative">{{negative}}</td>
+                            <td id="death">{{death}}</td>
+                            <td id="recovered">{{recovered}}</td>
+                            <td id="total">{{total}}</td>
+                        </tr>
+                    </tbody>
+                    {{/each}}
+                </table>
 
-        <div class="container testimonial-group">
-            <div class="row flex-nowrap">
-                {{#each abstract}}
-
-                <div class="col-sm-4 py-1 style=width: 20rem">
-                    <div class="card">
-
-                        <img src={{this.imgURL}}>
-
-                        <div class="card-body text-">
-                            <a href={{ this.web_url }}>
-                                <p class="card-text">{{ this.abstract }}</p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                {{/each}}
             </div>
         </div>
-
 
     </div>
+    <br>
+</div>
+<div class="articleIntro">
+    <p class="text-center">CURRENT ARTICLES REGARDING COVID-19</p>
+</div>
+
+
+<div class="container testimonial-group w-100">
+
+    <div class="row flex-nowrap">
+        {{#each abstract}}
+        <div class="col-sm-4 py-1 style=width: 20rem">
+            <div class="card">
+                {{#with this.multimedia}}
+                <img class="card-img-top" src="https://www.nytimes.com/{{this.[0].url}}">
+                {{/with}}
+                <div class="card-body text-">
+                    <a href={{ this.web_url }}>
+                        <p class="card-text">{{ this.abstract }}</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>
+
+
+</div>
 </div>
 
 <!--Footer-->

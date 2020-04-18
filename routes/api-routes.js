@@ -11,9 +11,8 @@ module.exports = function (app) {
 
     res.json({
       email: req.user.email,
-      id: req.user.id
+      id: req.user.id,
     });
-
   });
 
   // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
@@ -23,7 +22,7 @@ module.exports = function (app) {
     db.User.create({
       email: req.body.email,
       password: req.body.password,
-      user_name: req.body.user_name
+      user_name: req.body.user_name,
     })
       .then(function () {
         res.redirect(307, "/api/login");
@@ -35,9 +34,9 @@ module.exports = function (app) {
 
   // Route for logging user out
   app.get("/logout", function (req, res) {
-    console.log("before:", req.user)
+    console.log("before:", req.user);
     req.logout();
-    console.log("after:", req.user)
+    console.log("after:", req.user);
     res.redirect("/");
   });
 
@@ -52,40 +51,39 @@ module.exports = function (app) {
       res.json({
         email: req.user.email,
         id: req.user.id,
-        user_name: req.user.user_name
+        user_name: req.user.user_name,
       });
     }
   });
 
-
   app.get("/api/inventory/:UserId", function (req, res) {
     db.Inventory.findAll({
       where: {
-        UserId: req.params.UserId
-      }
-    })
-      .then(function (dbPost) {
-        res.json(dbPost);
-      });
+        UserId: req.params.UserId,
+      },
+    }).then(function (dbPost) {
+      res.json(dbPost);
+    });
   });
 
   app.get("/api/inventory/:UserId/:InventoryID", function (req, res) {
     db.Inventory.findOne({
       where: {
         UserId: req.params.UserId,
-        id: req.params.InventoryID
-      }
-    })
-      .then(function (dbPost) {
-        res.json(dbPost);
-      });
+        id: req.params.InventoryID,
+      },
+    }).then(function (dbPost) {
+      res.json(dbPost);
+    });
   });
 
   app.delete("/api/delete/inventory/:id", async function (req, res) {
     var condition = "id=" + req.params.id;
 
-    const results = await db.Inventory.destroy({ where: { id: req.params.id } });
-    console.log('hello', results)
+    const results = await db.Inventory.destroy({
+      where: { id: req.params.id },
+    });
+    console.log("hello", results);
     res.status(200).json(true);
   });
 
@@ -95,7 +93,7 @@ module.exports = function (app) {
       item_format: req.body.item_format,
       number_items: req.body.number_items,
       category: req.body.category,
-      UserId: req.user.id
+      UserId: req.user.id,
     })
       .then(function () {
         res.status(200).json(true);
@@ -105,20 +103,16 @@ module.exports = function (app) {
       });
   });
 
-
-
-
-
-
-
   app.put("/api/update/inventory/:id", function (req, res) {
-    db.Inventory.update({
-      item_name: req.body.item_name,
-      item_format: req.body.item_format,
-      number_items: req.body.number_items,
-      category: req.body.category
-
-    }, { where: { id: req.params.id } })
+    db.Inventory.update(
+      {
+        item_name: req.body.item_name,
+        item_format: req.body.item_format,
+        number_items: req.body.number_items,
+        category: req.body.category,
+      },
+      { where: { id: req.params.id } }
+    )
       .then(function () {
         res.status(200).json(true);
       })
@@ -126,40 +120,36 @@ module.exports = function (app) {
         res.status(401).json(err);
       });
   });
-
-
 
   app.get("/api/shopping/:UserId", function (req, res) {
     db.ShoppingList.findAll({
       where: {
-        UserId: req.params.UserId
-      }
-    })
-      .then(function (dbPost) {
-        res.json(dbPost);
-      });
+        UserId: req.params.UserId,
+      },
+    }).then(function (dbPost) {
+      res.json(dbPost);
+    });
   });
 
   app.get("/api/shopping/:ShoppingID", function (req, res) {
     db.ShoppingList.findOne({
       where: {
         UserId: req.params.UserId,
-        id: req.params.ShoppingID
-      }
-    })
-      .then(function (dbPost) {
-        res.json(dbPost);
-      });
+        id: req.params.ShoppingID,
+      },
+    }).then(function (dbPost) {
+      res.json(dbPost);
+    });
   });
 
   app.delete("/api/delete/shopping/:id", async function (req, res) {
-
-    const results = await db.ShoppingList.destroy({ where: { id: req.params.id } });
-    console.log('hello', results)
+    const results = await db.ShoppingList.destroy({
+      where: { id: req.params.id },
+    });
+    console.log("hello", results);
     res.status(200);
     res.json(true);
   });
-
 
   app.post("/api/create/shopping", function (req, res) {
     db.ShoppingList.create({
@@ -167,7 +157,7 @@ module.exports = function (app) {
       item_format: req.body.item_format,
       number_items: req.body.number_items,
       category: req.body.category,
-      UserId: req.user.id
+      UserId: req.user.id,
     })
       .then(function () {
         res.status(200).json(true);
@@ -178,13 +168,15 @@ module.exports = function (app) {
   });
 
   app.put("/api/update/shopping/:id", function (req, res) {
-    db.ShoppingList.update({
-      item_name: req.body.item_name,
-      item_format: req.body.item_format,
-      number_items: req.body.number_items,
-      category: req.body.category
-
-    }, { where: { id: req.params.id } })
+    db.ShoppingList.update(
+      {
+        item_name: req.body.item_name,
+        item_format: req.body.item_format,
+        number_items: req.body.number_items,
+        category: req.body.category,
+      },
+      { where: { id: req.params.id } }
+    )
       .then(function () {
         res.status(200).json(true);
       })
@@ -192,5 +184,4 @@ module.exports = function (app) {
         res.status(401).json(err);
       });
   });
-
 };
