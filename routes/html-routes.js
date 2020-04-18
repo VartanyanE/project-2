@@ -88,7 +88,7 @@ module.exports = function (app) {
   });
 
   app.get("/inventory", isAuthenticated, function (req, res) {
-    console.log(req.user.id);
+    // console.log(req.user.id);
 
     db.Inventory.findAll({ where: { UserId: req.user.id } })
       .then((data) => {
@@ -107,11 +107,11 @@ module.exports = function (app) {
   });
 
   app.get("/shopping", isAuthenticated, function (req, res) {
-    console.log(req.user.id);
+    // console.log(req.user.id);
 
     db.ShoppingList.findAll({ where: { UserId: req.user.id } })
       .then((data) => {
-        console.log("shopping_list:", data);
+        // console.log("shopping_list:", data);
         var jsonData = data.map((el) => el.toJSON());
 
         // console.log(nodeData);
