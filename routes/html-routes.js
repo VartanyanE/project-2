@@ -3,19 +3,21 @@ var path = require("path");
 var db = require("../models");
 var axios = require("axios");
 
+
 // Requiring our custom middleware for checking if a user is logged in
 var isAuthenticated = require("../config/middleware/isAuthenticated");
 var isNotAuthenticated = require("../config/middleware/isNotAuthenticated");
 var isNotAuthenticated2 = require("../config/middleware/isNotAuthenticated2");
 
 module.exports = function (app) {
-  app.get("/", function (req, res) {
+  app.get("/", isNotAuthenticated2, function (req, res) {
+
     // If the user already has an account send them to the members page
     // if (req.user) {
     //   res.redirect("/members");
     // }
     // res.sendFile(path.join(__dirname, "../public/index.html"));
-    res.render("index", { data: "" });
+    res.render("index", { sessionId: req.user.id });
   });
 
   app.get("/login", function (req, res) {
@@ -39,7 +41,7 @@ module.exports = function (app) {
     res.render("signup", { data: "" });
   });
 
-  app.get("/covid-19", function (req, res) {
+  app.get("/covid-19", isAuthenticated, function (req, res) {
     // NEW ARTICLES ON COVID-19 + CURRENT STATE RESULTS
     let one =
       "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=coronavirus&api-key=YMc1gccWtljsNRIaEKZEZBHnRni3CLGx";
@@ -73,6 +75,7 @@ module.exports = function (app) {
           death: death,
           recovered: recovered,
           total: total,
+          sessionId: req.user.id,
         });
       })
     );
